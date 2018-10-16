@@ -54,11 +54,7 @@ class InteractiveRecord
   end
 
   def self.find_by(options={})
-    options.each do |property, value|
-      @property = property
-      @value = value
-    end
-    sql = "SELECT * FROM #{self.table_name} WHERE '#{@property}' = '#{@value}'"
+    sql = "SELECT * FROM #{self.table_name} WHERE '#{options[0]}' = '#{options[1]}'"
     DB[:conn].execute(sql)
   end
 end
