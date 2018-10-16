@@ -59,5 +59,6 @@ class InteractiveRecord
       @value = value
     end
     sql = "SELECT * FROM #{self.table_name} WHERE '#{property}' = '#{value}'"
+    DB[:conn].execute(sql)
   end
 end
