@@ -58,7 +58,7 @@ class InteractiveRecord
       @property = property
       @value = value
     end
-    sql = "SELECT * FROM #{self.table_name} WHERE '#{property}' = '#{value}'"
+    sql = "SELECT * FROM #{self.table_name} WHERE '#{@property}' = '#{@value}'"
     DB[:conn].execute(sql)
   end
 end
