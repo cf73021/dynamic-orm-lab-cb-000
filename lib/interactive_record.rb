@@ -52,4 +52,12 @@ class InteractiveRecord
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
     DB[:conn].execute(sql)
   end
+
+  def self.find_by(options={})
+    options.each do |property, value|
+      @property = property
+      @value = value
+    end
+    sql = "SELECT * FROM #{self.table_name} WHERE '#{property}' = '#{value}'"
+  end
 end
